@@ -9,7 +9,7 @@ VPCID=$(aws ec2 describe-route-tables --output text --query 'RouteTables[].VpcId
 IFS="
 "
 declare -a ROUTES=()
-declare -A VGWS=()
+declare -a VGWS=()
 declare -a VPCE=()
 SAWPROP=0
 

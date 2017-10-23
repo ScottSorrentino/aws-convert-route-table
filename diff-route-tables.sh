@@ -26,7 +26,7 @@ aws ec2 describe-route-tables \
     --query 'RouteTables[].Routes[].[GatewayId,NatGatewayId,VpcPeeringConnectionId,DestinationCidrBlock]' \
     --route-table-ids ${RTID2} | awk '{print $1,$2,$3,$4}' | sort >> ${OUT2}
 echo "Comparing ${RTID1} (${OUT1}) with ${RTID2} (${OUT2})"
-diff -u0 ${OUT1} ${OUT2}
+diff -u ${OUT1} ${OUT2}
 RC=$?
 if [[ $RC -ne 0 ]]; then
     echo "Route tables ${RTID1} and ${RTID2} differ"
